@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 
-import Login from "./components/Login";
-import GasPrices from "./components/GasPrices";
+import LoginForm from "./components/LoginForm";
+import FriendsList from "./components/FriendsList";
 import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
