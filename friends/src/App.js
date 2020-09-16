@@ -14,10 +14,10 @@ function App() {
           <Link to="/login">Login</Link>
         </div>
         <div>
-          <Link to="/friends">Add a Friend</Link>
+          <Link to="/friend_form">Add a Friend</Link>
         </div>
         <div>
-          <Link to="/friend_form">My Friends</Link>
+          <Link to="/friends">My Friends</Link>
         </div>
         <Switch>
           <PrivateRoute exact path="/friends" component={FriendsList} />
