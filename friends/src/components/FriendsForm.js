@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 const initialFriendValue = {
@@ -8,10 +8,10 @@ const initialFriendValue = {
   email: "",
 };
 
-// const history = useHistory();
-
-const FriendsForm = (props) => {
+const FriendsForm = () => {
   const [friend, setFriend] = useState(initialFriendValue);
+
+  let history = useHistory();
 
   const handleChange = (e) => {
     setFriend({
@@ -30,7 +30,7 @@ const FriendsForm = (props) => {
       .post("./api/friends", friend)
       .then((res) => {
         localStorage.setItem("token", res.data.payload);
-        props.history.push("/friends");
+        history.push("/friends");
       })
       .catch((err) => {
         console.log(err);

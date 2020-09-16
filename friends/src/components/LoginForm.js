@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 const credentials = {
@@ -7,10 +7,10 @@ const credentials = {
   password: "",
 };
 
-// const history = useHistory();
-
-const LoginForm = (props) => {
+const LoginForm = () => {
   const [login, setLogin] = useState(credentials);
+
+  let history = useHistory();
 
   const handleChange = (e) => {
     setLogin({ ...login, [e.target.name]: e.target.value });
@@ -23,7 +23,7 @@ const LoginForm = (props) => {
       .then((res) => {
         console.log(res.data.payload);
         localStorage.setItem("token", res.data.payload);
-        props.history.push("/friends");
+        history.push("/friends");
       })
       .catch((err) => {
         console.log(err);
