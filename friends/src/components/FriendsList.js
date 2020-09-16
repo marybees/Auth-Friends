@@ -21,9 +21,9 @@ const FriendsList = (props) => {
       {friends.map((friend) => {
         return (
           <div>
-            <p>friend.name</p>
-            <p>friend.age</p>
-            <p>friend.email</p>
+            <p>{friend.name}</p>
+            <p>{friend.age}</p>
+            <p>{friend.email}</p>
           </div>
         );
       })}

@@ -25,42 +25,46 @@ const FriendsForm = (props) => {
     setFriend({
       ...friend,
     });
-  };
+    console.log("friend submitted");
 
-  axiosWithAuth()
-    .post("./api/friends", friend)
-    .then((res) => {
-      localStorage.setItem("token", res.data.payload);
-      history.push("/friends");
-    })
-    .catch((err) => console.log(err));
+    axiosWithAuth()
+      .post("./api/friends", friend)
+      .then((res) => {
+        localStorage.setItem("token", res.data.payload);
+        history.push("/friends");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <div>
+      <h2>My Friends</h2>
       <form onSubmit={handleSubmit}>
-        Name:{" "}
         <label>
+          Name:
           <input
-            name="name"
             type="text"
+            name="name"
             value={friend.name}
             onChange={handleChange}
           />
         </label>
-        Age:{" "}
         <label>
+          Age:
           <input
-            name="age"
             type="text"
+            name="age"
             value={friend.age}
             onChange={handleChange}
           />
         </label>
-        Email:{" "}
         <label>
+          Email:
           <input
-            name="email"
             type="text"
+            name="email"
             value={friend.email}
             onChange={handleChange}
           />

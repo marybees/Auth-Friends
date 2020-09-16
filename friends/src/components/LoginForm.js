@@ -19,8 +19,9 @@ const LoginForm = (props) => {
   const handleLogin = (e) => {
     e.preventDefault();
     axiosWithAuth()
-      .post("http://localhost:5000/api/login", login)
+      .post("/api/login", login)
       .then((res) => {
+        console.log(res.data.payload);
         localStorage.setItem("token", res.data.payload);
         history.push("/protected");
       })
@@ -31,24 +32,30 @@ const LoginForm = (props) => {
 
   return (
     <div>
+      <h2>Login</h2>
       <form onSubmit={handleLogin}>
-        Username:{" "}
-        <input
-          type="text"
-          name="username"
-          value={credentials.username}
-          onChange={handleChange}
-        />
-        Password:{" "}
-        <input
-          type="text"
-          name="password"
-          value={credentials.password}
-          onChange={handleChange}
-        />
+        <label>
+          Username:
+          <input
+            type="text"
+            name="username"
+            placeholder="Username"
+            value={login.username}
+            onChange={handleChange}
+          />
+        </label>
+        <label>
+          Password:
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            value={login.password}
+            onChange={handleChange}
+          />
+        </label>
         <button>Login</button>
       </form>
-      {/* <p style={{ color: "red" }}>{err}</p> */}
     </div>
   );
 };
