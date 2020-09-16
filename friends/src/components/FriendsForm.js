@@ -1,17 +1,17 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 
+const initialFriendValue = {
+  name: "",
+  age: "",
+  email: "",
+};
+
+// const history = useHistory();
+
 const FriendsForm = (props) => {
-  const initialFriendValue = {
-    name: "",
-    age: "",
-    email: "",
-  };
-
   const [friend, setFriend] = useState(initialFriendValue);
-
-  const history = useHistory();
 
   const handleChange = (e) => {
     setFriend({
@@ -26,12 +26,11 @@ const FriendsForm = (props) => {
       ...friend,
     });
     console.log("friend submitted");
-
     axiosWithAuth()
       .post("./api/friends", friend)
       .then((res) => {
         localStorage.setItem("token", res.data.payload);
-        history.push("/friends");
+        props.history.push("/friends");
       })
       .catch((err) => {
         console.log(err);
