@@ -32,14 +32,14 @@ const FriendsForm = (props) => {
     .post("./api/friends", friend)
     .then((res) => {
       localStorage.setItem("token", res.data.payload);
-      history.push("./FriendsList");
+      history.push("/friends");
     })
     .catch((err) => console.log(err));
 };
 
 return (
   <div>
-    <form>
+    <form onSubmit={handleSubmit}>
       <label>
         <input
           name="name"

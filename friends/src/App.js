@@ -22,9 +22,9 @@ function App() {
           </li>
         </ul>
         <Switch>
-          <PrivateRoute exact path="/protected" component={FriendsList} />
-          <PrivateRoute exact path="/protected" component={FriendsForm} />
-          <Route component={LoginForm} />
+          <PrivateRoute exact path="/friends" component={FriendsList} />
+          <Route path="/friend_form" component={FriendsForm} />
+          <Route path="/login" component={LoginForm} />
         </Switch>
       </div>
     </Router>

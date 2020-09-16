@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 
-function Login() {
+const Login = (props) => {
   const [credentials, setCredentials] = useState({
     credentials: { username: "", password: "" },
   });
@@ -24,9 +24,7 @@ function Login() {
         history.push("/protected");
       })
       .catch((err) => {
-        this.setState({
-          error: err.response.data.error,
-        });
+        console.log(err);
       });
   };
 
@@ -50,6 +48,6 @@ function Login() {
       <p style={{ color: "red" }}>{error}</p>
     </div>
   );
-}
+};
 
 export default Login;

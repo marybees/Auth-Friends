@@ -6,7 +6,7 @@ const FriendsList = (props) => {
 
   useEffect(() => {
     axiosWithAuth()
-      .get("./api/friends")
+      .get("/api/friends")
       .then((res) => {
         setFriends(res.data);
       })
