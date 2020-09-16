@@ -38,6 +38,7 @@ const FriendsForm = (props) => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
+        Name:{" "}
         <label>
           <input
             name="name"
@@ -46,6 +47,7 @@ const FriendsForm = (props) => {
             onChange={handleChange}
           />
         </label>
+        Age:{" "}
         <label>
           <input
             name="age"
@@ -54,6 +56,7 @@ const FriendsForm = (props) => {
             onChange={handleChange}
           />
         </label>
+        Email:{" "}
         <label>
           <input
             name="email"
