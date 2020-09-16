@@ -20,7 +20,7 @@ const FriendsList = (props) => {
       <h2>My Friends</h2>
       {friends.map((friend) => {
         return (
-          <div>
+          <div key={friend.id}>
             <p>{friend.name}</p>
             <p>{friend.age}</p>
             <p>{friend.email}</p>
