@@ -34,26 +34,30 @@ const LoginForm = (props) => {
     <div>
       <h2>Login</h2>
       <form onSubmit={handleLogin}>
-        <label>
-          Username:
-          <input
-            type="text"
-            name="username"
-            placeholder="Username"
-            value={login.username}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Password:
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            value={login.password}
-            onChange={handleChange}
-          />
-        </label>
+        <p>
+          <label>
+            Username:
+            <input
+              type="text"
+              name="username"
+              placeholder="Username"
+              value={login.username}
+              onChange={handleChange}
+            />
+          </label>
+        </p>
+        <p>
+          <label>
+            Password:
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              value={login.password}
+              onChange={handleChange}
+            />
+          </label>
+        </p>
         <button>Login</button>
       </form>
     </div>
